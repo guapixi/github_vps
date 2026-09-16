@@ -141,9 +141,12 @@ bash start.sh win11
   docker compose -f windows/docker-compose.yml down
   ```
 
-  然后在 GitHub 页面点击 `Stop codespace`。
+  然后在 GitHub Codespaces 页面点击 `Stop codespace`。只有停止 Codespace，才会停止
+  Codespaces 使用时长；仅执行 `docker compose down` 不会停止 Codespace 计时。
 
-Windows ISO 保存在 `/tmp/win11-storage/win11x64.iso`。不要删除 `/tmp/win11-storage`，否则下次可能需要重新下载。
+当前 Windows ISO 和虚拟磁盘保存在 `/tmp/win11-storage`。`docker compose down` 不会删除
+这些文件，但 Codespace 停止或重建后 `/tmp` 内容可能不会保留。重新打开 Codespace
+后请先检查 ISO 和 `data.img` 是否存在；如果不存在，需要重新执行 `bash start.sh win11`。
 
 ### 默认登录信息
 
