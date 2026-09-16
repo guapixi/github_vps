@@ -126,8 +126,12 @@ bash start.sh win11
 
   ```bash
   cd /workspaces/github_vps
-  docker compose -f windows/docker-compose.yml up -d
+  bash start.sh win11
   ```
+
+  不要在没有检查 ISO 的情况下直接执行 `docker compose up`。如果 ISO 因 Codespace
+  重建而丢失，Docker 可能会把缺失的 ISO 路径创建成目录，随后产生挂载类型错误。
+  `bash start.sh win11` 会先检查并下载缺失的 ISO。
 
 2. 打开 Windows 管理界面：
 
